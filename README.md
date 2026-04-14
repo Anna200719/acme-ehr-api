@@ -197,6 +197,14 @@ anomaly if z-score > 2
 Request → Route → Controller → Service → DB
 ```
 
+```mermaid
+flowchart LR
+  Client --> Route --> Controller --> Service
+  Service --> SQLite
+  Service --> lib["lib: extract / stats / anomaly"]
+  Service --> config["config: extraction / validation / anomaly"]
+```
+
 - **controllers/** — HTTP in/out only, no business logic
 - **services/** — business logic, orchestration
 - **config/** — extraction rules, validation rules, anomaly thresholds (data, not code)
